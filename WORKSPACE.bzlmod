@@ -1,0 +1,9 @@
+load("@com_github_mvukov_rules_ros2//repositories:repositories.bzl", "ros2_repositories", "rules_ros2_bzlmod_deps")
+
+rules_ros2_bzlmod_deps()
+
+ros2_repositories()
+
+load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
+
+boost_deps()

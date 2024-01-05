@@ -18,6 +18,8 @@ load("@bazel_skylib//lib:paths.bzl", "paths")
 load("@com_github_mvukov_rules_ros2//ros2:cc_opts.bzl", "CPP_COPTS", "C_COPTS")
 load("@rules_cc//cc:toolchain_utils.bzl", "find_cpp_toolchain")
 load("@rules_python//python:defs.bzl", "py_library")
+
+# load("@rules_python//python/private:normalize_name.bzl", "normalize_name")
 load("@rules_ros2_pip_deps//:requirements.bzl", "requirement")
 
 Ros2InterfaceInfo = provider(
@@ -821,8 +823,10 @@ py_generator_aspect = aspect(
         ),
         "_py_ext_c_deps": attr.label_list(
             default = [
-                Label("@rules_ros2_python//:python_headers"),
-                Label("@rules_ros2_pip_deps_numpy//:headers"),
+                Label("@rules_python//python/cc:current_py_cc_headers"),
+                # TODO: make this work for both WORKSPACE and Bzlmod
+                # Label(requirement("numpy")[:-len(":pkg")] + ":headers"),
+                Label("@rules_ros2_pip_deps_311_numpy//:headers"),
             ],
             providers = [CcInfo],
         ),

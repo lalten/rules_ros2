@@ -54,6 +54,9 @@ jobs:
     # Run bazel test with gcc and clang in each workspace
     strategy:
       matrix:
+        bzlmod:
+          - "--enable_bzlmod"
+          - "--noenable_bzlmod"
         folder:
           - "."
           - "examples"
@@ -90,7 +93,7 @@ jobs:
             ~/.cache/bazel-repo
           key: v3-bazel-repo-cache-${{ hashFiles('.bazelversion', 'examples/WORKSPACE', 'repositories/**', 'requirements_lock.txt', 'WORKSPACE') }}
           restore-keys: v3-bazel-repo-cache-
-      - name: bazel test ${{ matrix.config_option }} //...
+      - name: bazel test ${{ matrix.config_option }} ${{ matrix.bzlmod}} //...
         env:
           # Bazelisk will download bazel to here, ensure it is cached between runs.
           XDG_CACHE_HOME: ~/.cache/bazel-repo

@@ -1,7 +1,6 @@
 """Handles imports of external/third-party repositories.
 """
 
-load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
 load(
@@ -9,9 +8,25 @@ load(
     "ros2_repositories_impl",
 )
 
-def ros2_repositories():
-    """Imports external/third-party repositories.
+def rules_ros2_bzlmod_deps():
+    """Import Bazel build system http_archive dependencies for the Bzlmod version of rules_ros2.
+
+    These are needed for both the WORKSPACE and WORKSPACE.bzlmod versions of rules_ros2.
     """
+    maybe(
+        http_archive,
+        name = "com_github_nelhage_rules_boost",
+        sha256 = "b375550dde177abb48d9fc6edf63a7850aec350cdb4dc3360a456ea0fbd7d45c",
+        strip_prefix = "rules_boost-45015796689f17e9fc7972073eb7830784c40ee9",
+        urls = ["https://github.com/nelhage/rules_boost/archive/45015796689f17e9fc7972073eb7830784c40ee9.zip"],
+    )
+
+    _googletest_deps()
+
+def rules_ros2_workspace_deps():
+    """Import Bazel build system http_archive dependencies for the WORKSPACE version of rules_ros2."""
+    rules_ros2_bzlmod_deps()
+
     maybe(
         http_archive,
         name = "rules_python",
@@ -27,6 +42,16 @@ def ros2_repositories():
         sha256 = "cd55a062e763b9349921f0f5db8c3933288dc8ba4f76dd9416aac68acee3cb94",
     )
 
+    maybe(
+        http_archive,
+        name = "rules_foreign_cc",
+        sha256 = "476303bd0f1b04cc311fc258f1708a5f6ef82d3091e53fd1977fa20383425a6a",
+        strip_prefix = "rules_foreign_cc-0.10.1",
+        url = "https://github.com/bazelbuild/rules_foreign_cc/archive/refs/tags/0.10.1.tar.gz",
+    )
+
+def ros2_repositories():
+    """Import external/third-party build http_archive dependencies."""
     maybe(
         http_archive,
         name = "fmt",
@@ -65,21 +90,11 @@ def ros2_repositories():
 
     maybe(
         http_archive,
-        name = "rules_foreign_cc",
-        sha256 = "476303bd0f1b04cc311fc258f1708a5f6ef82d3091e53fd1977fa20383425a6a",
-        strip_prefix = "rules_foreign_cc-0.10.1",
-        url = "https://github.com/bazelbuild/rules_foreign_cc/archive/refs/tags/0.10.1.tar.gz",
-    )
-
-    maybe(
-        http_archive,
         name = "com_google_googletest",
         sha256 = "8ad598c73ad796e0d8280b082cebd82a630d73e73cd3c70057938a6501bba5d7",
         strip_prefix = "googletest-1.14.0",
         url = "https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz",
     )
-
-    _googletest_deps()
 
     maybe(
         http_archive,
