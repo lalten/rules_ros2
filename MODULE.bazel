@@ -7,7 +7,7 @@ bazel_dep(name = "rules_foreign_cc", version = "0.10.1")
 bazel_dep(name = "rules_python", version = "0.27.1")
 
 python = use_extension("@rules_python//python:extensions.bzl", "python")
-python.toolchain(python_version = "3.10")
+python.toolchain(python_version = "3.11")
 use_repo(python, "python_versions")
 
 pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
@@ -27,7 +27,7 @@ cc_library(
 use_repo(pip, "whl_mods_hub")
 pip.parse(
     hub_name = "rules_ros2_pip_deps",
-    python_version = "3.10",
+    python_version = "3.11",
     requirements_lock = "//:requirements_lock.txt",
     whl_modifications = {"@whl_mods_hub//:numpy.json": "numpy"},
 )
@@ -35,7 +35,7 @@ use_repo(pip, "rules_ros2_pip_deps")
 use_repo(pip, "rules_ros2_pip_deps_311_numpy")
 pip.parse(
     hub_name = "rules_ros2_resolver_deps",
-    python_version = "3.10",
+    python_version = "3.11",
     requirements_lock = "//repositories/private:resolver_requirements_lock.txt",
 )
 use_repo(pip, "rules_ros2_resolver_deps")
