@@ -68,6 +68,9 @@ jobs:
             config_option: ""
           - toolchain: "clang"
             config_option: "--config=clang"
+        exclude:
+          - bzlmod: "--enable_bzlmod"
+            folder: "examples" # TODO: bzlmod examples
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
