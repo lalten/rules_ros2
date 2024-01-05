@@ -103,4 +103,4 @@ jobs:
           BUILDBUDDY_ORG_API_KEY: ${{ secrets.BUILDBUDDY_ORG_API_KEY }}
           USER: ${{ needs.configure.outputs.user_name }}
         working-directory: ${{ matrix.folder }}
-        run: ${GITHUB_WORKSPACE}/.github/workflows/test.sh ${{ matrix.config_option }}
+        run: ${GITHUB_WORKSPACE}/.github/workflows/test.sh ${{ matrix.config_option }} ${{ matrix.bzlmod}}
