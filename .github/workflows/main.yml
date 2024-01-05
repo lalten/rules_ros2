@@ -53,6 +53,7 @@ jobs:
 
     # Run bazel test with gcc and clang in each workspace
     strategy:
+      fail-fast: false
       matrix:
         bzlmod:
           - "--enable_bzlmod"
