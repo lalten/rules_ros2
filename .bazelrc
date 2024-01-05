@@ -29,6 +29,9 @@ build --noexperimental_check_output_files
 # Don't bother building targets which aren't dependencies of the tests.
 test --build_tests_only
 
+# Show all the problems in CI
+test --keep_going
+
 # To use a clang compiler, invoke Bazel with `--config=clang`.
 build:clang --repo_env=CC=clang
 build:clang --repo_env=CXX=clang++
