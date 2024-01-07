@@ -19,6 +19,9 @@ python_register_toolchains(
     python_version = "3.10",
 )
 
+# Workaround until https://github.com/bazelbuild/rules_python/pull/1670 is released
+register_toolchains("@rules_ros2_python_toolchains//:x86_64-unknown-linux-gnu_py_cc_toolchain")
+
 load("@rules_python//python:pip.bzl", "pip_parse")
 load("@rules_ros2_python//:defs.bzl", python_interpreter_target = "interpreter")
 load("//repositories:pip_annotations.bzl", "PIP_ANNOTATIONS")
