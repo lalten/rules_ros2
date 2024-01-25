@@ -66,6 +66,15 @@ def rules_ros2_workspace_deps():
         url = "https://github.com/gabime/spdlog/archive/v1.12.0.tar.gz",
     )
 
+    maybe(
+        http_archive,
+        name = "tinyxml2",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:tinyxml2.BUILD.bazel",
+        sha256 = "cc2f1417c308b1f6acc54f88eb70771a0bf65f76282ce5c40e54cfe52952702c",
+        strip_prefix = "tinyxml2-9.0.0",
+        urls = ["https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz"],
+    )
+
 def ros2_repositories():
     """Import external/third-party build http_archive dependencies."""
     maybe(
@@ -84,15 +93,6 @@ def ros2_repositories():
         sha256 = "d475978da0cdc2d43b73f30910786759d593a9d8ee05b1b6846d1eb16c6d2e0c",
         strip_prefix = "pybind11-2.11.1",
         urls = ["https://github.com/pybind/pybind11/archive/refs/tags/v2.11.1.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "tinyxml2",
-        build_file = "@com_github_mvukov_rules_ros2//repositories:tinyxml2.BUILD.bazel",
-        sha256 = "3bdf15128ba16686e69bce256cc468e76c7b94ff2c7f391cc5ec09e40bff3839",
-        strip_prefix = "tinyxml2-10.0.0",
-        urls = ["https://github.com/leethomason/tinyxml2/archive/refs/tags/10.0.0.tar.gz"],
     )
 
     maybe(
