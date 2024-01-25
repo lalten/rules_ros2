@@ -12,6 +12,15 @@ def rules_ros2_workspace_deps():
     """Import Bazel build system http_archive dependencies for the WORKSPACE version of rules_ros2."""
     maybe(
         http_archive,
+        name = "asio",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:asio.BUILD.bazel",
+        sha256 = "5705a0e403017eba276625107160498518838064a6dd7fd8b00b2e30c0ffbdee",
+        strip_prefix = "asio-asio-1-28-2/asio",
+        urls = ["https://github.com/chriskohlhoff/asio/archive/refs/tags/asio-1-28-2.tar.gz"],
+    )
+
+    maybe(
+        http_archive,
         name = "rules_python",
         sha256 = "d71d2c67e0bce986e1c5a7731b4693226867c45bfe0b7c5e0067228a536fc580",
         strip_prefix = "rules_python-0.29.0",
@@ -204,15 +213,6 @@ def ros2_repositories():
         sha256 = "6ce889d85ecdc2d8fa07408d6787e7352510750daa66b5ad44aacb47bea76755",
         strip_prefix = "websocketpp-0.8.2",
         urls = ["https://github.com/zaphoyd/websocketpp/archive/refs/tags/0.8.2.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "asio",
-        build_file = "@com_github_mvukov_rules_ros2//repositories:asio.BUILD.bazel",
-        sha256 = "b31c63867daaba0e460ee2c85dc508a52c81db0a7318e0d2147f444b26f80ed7",
-        strip_prefix = "asio-asio-1-27-0/asio",
-        urls = ["https://github.com/chriskohlhoff/asio/archive/refs/tags/asio-1-27-0.tar.gz"],
     )
 
     # We're pointing at hedronvision's mirror of google/boringssl:main-with-bazel to get
