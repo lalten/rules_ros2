@@ -21,9 +21,10 @@ import launch_testing.actions
 import launch_testing.asserts
 import launch_testing.markers
 import rclpy
-
 from python.runfiles import Runfiles
-AGGREGATOR_NODE_PATH = Runfiles.Create().Rlocation("ros2_diagnostics/aggregator_node")
+
+AGGREGATOR_NODE_PATH = Runfiles.Create().Rlocation(
+    'ros2_diagnostics/aggregator_node')
 
 
 @launch_testing.markers.keep_alive
