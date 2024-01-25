@@ -131,6 +131,15 @@ def rules_ros2_workspace_deps():
 
     maybe(
         http_archive,
+        name = "zlib",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:zlib.BUILD.bazel",
+        sha256 = "8a9ba2898e1d0d774eca6ba5b4627a11e5588ba85c8851336eb38de4683050a7",
+        strip_prefix = "zlib-1.3",
+        urls = ["https://github.com/madler/zlib/releases/download/v1.3/zlib-1.3.tar.xz"],
+    )
+
+    maybe(
+        http_archive,
         name = "zstd",
         build_file = "@com_github_mvukov_rules_ros2//repositories:zstd.BUILD.bazel",
         sha256 = "9c4396cc829cfae319a6e2615202e82aad41372073482fce286fac78646d3ee4",
@@ -224,18 +233,6 @@ def ros2_repositories():
         sha256 = "cf1cfe0adb443ef96197b109292847c0a97304058af21f3488a323b51984608a",
         strip_prefix = "boringssl-e762bd792ab7fecb170bdb1cd96a0bfb0c9d3238",
         urls = ["https://github.com/hedronvision/boringssl/archive/e762bd792ab7fecb170bdb1cd96a0bfb0c9d3238.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "zlib",
-        build_file = "@com_github_mvukov_rules_ros2//repositories:zlib.BUILD.bazel",
-        sha256 = "d14c38e313afc35a9a8760dadf26042f51ea0f5d154b0630a31da0540107fb98",
-        strip_prefix = "zlib-1.2.13",
-        urls = [
-            "https://github.com/madler/zlib/releases/download/v1.2.13/zlib-1.2.13.tar.xz",
-            "https://zlib.net/zlib-1.2.13.tar.xz",
-        ],
     )
 
     maybe(
