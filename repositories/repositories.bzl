@@ -84,6 +84,15 @@ def rules_ros2_workspace_deps():
         urls = ["https://github.com/cameron314/readerwriterqueue/archive/refs/tags/v1.0.6.tar.gz"],
     )
 
+    maybe(
+        http_archive,
+        name = "sqlite",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:sqlite.BUILD.bazel",
+        sha256 = "ad68c1216c3a474cf360c7581a4001e952515b3649342100f2d7ca7c8e313da6",
+        strip_prefix = "sqlite-amalgamation-3240000",
+        urls = ["https://www.sqlite.org/2018/sqlite-amalgamation-3240000.zip"],
+    )
+
 def ros2_repositories():
     """Import external/third-party build http_archive dependencies."""
     maybe(
@@ -111,15 +120,6 @@ def ros2_repositories():
         sha256 = "303a619c01a9e14a3c82eb9762b8a428ef5311a6d46353872ab9a904358be4a4",
         strip_prefix = "console_bridge-1.0.2",
         urls = ["https://github.com/ros/console_bridge/archive/1.0.2.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "sqlite",
-        build_file = "@com_github_mvukov_rules_ros2//repositories:sqlite.BUILD.bazel",
-        sha256 = "ad68c1216c3a474cf360c7581a4001e952515b3649342100f2d7ca7c8e313da6",
-        strip_prefix = "sqlite-amalgamation-3240000",
-        urls = ["https://www.sqlite.org/2018/sqlite-amalgamation-3240000.zip"],
     )
 
     maybe(
