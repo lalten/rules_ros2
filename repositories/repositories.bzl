@@ -49,8 +49,6 @@ def rules_ros2_workspace_deps():
         urls = ["https://github.com/nlohmann/json/releases/download/v3.11.3/include.zip"],
     )
 
-def ros2_repositories():
-    """Import external/third-party build http_archive dependencies."""
     maybe(
         http_archive,
         name = "fmt",
@@ -60,6 +58,8 @@ def ros2_repositories():
         url = "https://github.com/fmtlib/fmt/archive/9.1.0.tar.gz",
     )
 
+def ros2_repositories():
+    """Import external/third-party build http_archive dependencies."""
     maybe(
         http_archive,
         name = "spdlog",
