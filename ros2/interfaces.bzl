@@ -19,8 +19,6 @@ load("@com_github_mvukov_rules_ros2//ros2:cc_opts.bzl", "CPP_COPTS", "C_COPTS")
 load("@rules_cc//cc:toolchain_utils.bzl", "find_cpp_toolchain")
 load("@rules_python//python:defs.bzl", "py_library")
 load("@rules_python//python/private:bzlmod_enabled.bzl", "BZLMOD_ENABLED")
-
-# load("@rules_python//python/private:normalize_name.bzl", "normalize_name")
 load("@rules_ros2_pip_deps//:requirements.bzl", "requirement")
 
 Ros2InterfaceInfo = provider(
