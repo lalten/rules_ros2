@@ -18,9 +18,9 @@ cmake(
     cache_entries = {
         "BUILD_SHARED_LIBS": "OFF",
         "CMAKE_POSITION_INDEPENDENT_CODE": "ON",  # Must be set!
-        "yaml-cpp_BUILD_CONTRIB": "ON",
-        "yaml-cpp_BUILD_TESTS": "OFF",
-        "yaml-cpp_BUILD_TOOLS": "ON",
+        "YAML_CPP_BUILD_CONTRIB": "ON",
+        "YAML_CPP_BUILD_TESTS": "OFF",
+        "YAML_CPP_BUILD_TOOLS": "ON",
     },
     generate_args = ["-GNinja"],
     lib_source = ":all_srcs",
