@@ -44,6 +44,15 @@ def rules_ros2_workspace_deps():
 
     maybe(
         http_archive,
+        name = "lz4",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:lz4.BUILD.bazel",
+        sha256 = "0b0e3aa07c8c063ddf40b082bdf7e37a1562bda40a0ff5272957f3e987e0e54b",
+        strip_prefix = "lz4-1.9.4",
+        urls = ["https://github.com/lz4/lz4/archive/refs/tags/v1.9.4.tar.gz"],
+    )
+
+    maybe(
+        http_archive,
         name = "nlohmann_json",
         sha256 = "a22461d13119ac5c78f205d3df1db13403e58ce1bb1794edc9313677313f4a9d",
         urls = ["https://github.com/nlohmann/json/releases/download/v3.11.3/include.zip"],
@@ -129,15 +138,6 @@ def ros2_repositories():
         sha256 = "303a619c01a9e14a3c82eb9762b8a428ef5311a6d46353872ab9a904358be4a4",
         strip_prefix = "console_bridge-1.0.2",
         urls = ["https://github.com/ros/console_bridge/archive/1.0.2.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "lz4",
-        build_file = "@com_github_mvukov_rules_ros2//repositories:lz4.BUILD.bazel",
-        sha256 = "4ec935d99aa4950eadfefbd49c9fad863185ac24c32001162c44a683ef61b580",
-        strip_prefix = "lz4-1.9.3",
-        urls = ["https://github.com/lz4/lz4/archive/refs/tags/v1.9.3.zip"],
     )
 
     maybe(
