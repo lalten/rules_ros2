@@ -13,7 +13,6 @@ use_repo(
     "foxglove_bridge",
     "iceoryx",
     "osrf_pycommon",
-    "pybind11",
     "ros2_ament_cmake_ros",
     "ros2_ament_index",
     "ros2_class_loader",

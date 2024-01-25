@@ -104,6 +104,22 @@ def rules_ros2_workspace_deps():
 
     maybe(
         http_archive,
+        name = "pybind11_bazel",
+        sha256 = "56397b31ab55eb151e45d4e0a6b28d90a854290728595607c9a04d0ffee05c49",
+        strip_prefix = "pybind11_bazel-2.11.1.bzl.1",
+        urls = ["https://github.com/pybind/pybind11_bazel/releases/download/v2.11.1.bzl.1/pybind11_bazel-2.11.1.bzl.1.tar.gz"],
+    )
+    maybe(
+        http_archive,
+        name = "pybind11",
+        build_file = "@pybind11_bazel//:pybind11.BUILD",
+        sha256 = "d475978da0cdc2d43b73f30910786759d593a9d8ee05b1b6846d1eb16c6d2e0c",
+        strip_prefix = "pybind11-2.11.1",
+        urls = ["https://github.com/pybind/pybind11/archive/refs/tags/v2.11.1.tar.gz"],
+    )
+
+    maybe(
+        http_archive,
         name = "readerwriterqueue",
         build_file = "@com_github_mvukov_rules_ros2//repositories:readerwriterqueue.BUILD.bazel",
         sha256 = "fc68f55bbd49a8b646462695e1777fb8f2c0b4f342d5e6574135211312ba56c1",
@@ -156,15 +172,6 @@ def ros2_repositories():
         sha256 = "2c103fc473e904c6fe7580277f1fa16b6d716e54d5e3f32a8913c4850ae03b3f",
         strip_prefix = "libyaml-acd6f6f014c25e46363e718381e0b35205df2d83",
         urls = ["https://github.com/yaml/libyaml/archive/acd6f6f014c25e46363e718381e0b35205df2d83.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "pybind11",
-        build_file = "@com_github_mvukov_rules_ros2//repositories:pybind11.BUILD.bazel",
-        sha256 = "d475978da0cdc2d43b73f30910786759d593a9d8ee05b1b6846d1eb16c6d2e0c",
-        strip_prefix = "pybind11-2.11.1",
-        urls = ["https://github.com/pybind/pybind11/archive/refs/tags/v2.11.1.tar.gz"],
     )
 
     maybe(
