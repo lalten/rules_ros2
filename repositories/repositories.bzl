@@ -93,6 +93,15 @@ def rules_ros2_workspace_deps():
         urls = ["https://www.sqlite.org/2018/sqlite-amalgamation-3240000.zip"],
     )
 
+    maybe(
+        http_archive,
+        name = "zstd",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:zstd.BUILD.bazel",
+        sha256 = "9c4396cc829cfae319a6e2615202e82aad41372073482fce286fac78646d3ee4",
+        strip_prefix = "zstd-1.5.5",
+        urls = ["https://github.com/facebook/zstd/releases/download/v1.5.5/zstd-1.5.5.tar.gz"],
+    )
+
 def ros2_repositories():
     """Import external/third-party build http_archive dependencies."""
     maybe(
@@ -120,15 +129,6 @@ def ros2_repositories():
         sha256 = "303a619c01a9e14a3c82eb9762b8a428ef5311a6d46353872ab9a904358be4a4",
         strip_prefix = "console_bridge-1.0.2",
         urls = ["https://github.com/ros/console_bridge/archive/1.0.2.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "zstd",
-        build_file = "@com_github_mvukov_rules_ros2//repositories:zstd.BUILD.bazel",
-        sha256 = "9c4396cc829cfae319a6e2615202e82aad41372073482fce286fac78646d3ee4",
-        strip_prefix = "zstd-1.5.5",
-        urls = ["https://github.com/facebook/zstd/releases/download/v1.5.5/zstd-1.5.5.tar.gz"],
     )
 
     maybe(

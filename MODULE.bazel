@@ -12,6 +12,7 @@ bazel_dep(name = "rules_python", version = "0.29.0")
 bazel_dep(name = "spdlog", version = "1.12.0")
 bazel_dep(name = "sqlite3", version = "3.42.0")
 bazel_dep(name = "tinyxml2", version = "9.0.0")
+bazel_dep(name = "zstd", version = "1.5.5")
 
 python = use_extension("@rules_python//python:extensions.bzl", "python")
 python.toolchain(
