@@ -35,6 +35,15 @@ def rules_ros2_workspace_deps():
 
     maybe(
         http_archive,
+        name = "eigen",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:eigen.BUILD.bazel",
+        sha256 = "8586084f71f9bde545ee7fa6d00288b264a2b7ac3607b974e54d13e7162c1c72",
+        strip_prefix = "eigen-3.4.0",
+        urls = ["https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz"],
+    )
+
+    maybe(
+        http_archive,
         name = "googletest",
         sha256 = "8ad598c73ad796e0d8280b082cebd82a630d73e73cd3c70057938a6501bba5d7",
         strip_prefix = "googletest-1.14.0",
@@ -156,15 +165,6 @@ def ros2_repositories():
         sha256 = "2833f72344308ea58639f3b363a0cf17669580ae7ab435f43f3b104cff6ef548",
         strip_prefix = "mcap-releases-cpp-v0.8.0/cpp/mcap",
         urls = ["https://github.com/foxglove/mcap/archive/refs/tags/releases/cpp/v0.8.0.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "eigen",
-        build_file = "@com_github_mvukov_rules_ros2//repositories:eigen.BUILD.bazel",
-        sha256 = "8586084f71f9bde545ee7fa6d00288b264a2b7ac3607b974e54d13e7162c1c72",
-        strip_prefix = "eigen-3.4.0",
-        urls = ["https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz"],
     )
 
     maybe(
