@@ -113,8 +113,8 @@ def rules_ros2_workspace_deps():
 
     maybe(
         http_archive,
-        name = "yaml_cpp",
-        build_file = "@com_github_mvukov_rules_ros2//repositories:yaml_cpp.BUILD.bazel",
+        name = "yaml-cpp",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:yaml-cpp.BUILD.bazel",
         sha256 = "fbe74bbdcee21d656715688706da3c8becfd946d92cd44705cc6098bb23b3a16",
         strip_prefix = "yaml-cpp-0.8.0",
         urls = ["https://github.com/jbeder/yaml-cpp/archive/refs/tags/0.8.0.tar.gz"],
