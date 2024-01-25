@@ -27,6 +27,7 @@ cc_library(
     deps = [
         "@nlohmann_json//:json",
         "@websocketpp",
+        "@openssl//:ssl",
     ],
 )
 
