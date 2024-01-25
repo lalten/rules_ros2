@@ -13,14 +13,6 @@ def rules_ros2_bzlmod_deps():
 
     These are needed for both the WORKSPACE and WORKSPACE.bzlmod versions of rules_ros2.
     """
-    maybe(
-        http_archive,
-        name = "com_github_nelhage_rules_boost",
-        sha256 = "b375550dde177abb48d9fc6edf63a7850aec350cdb4dc3360a456ea0fbd7d45c",
-        strip_prefix = "rules_boost-45015796689f17e9fc7972073eb7830784c40ee9",
-        urls = ["https://github.com/nelhage/rules_boost/archive/45015796689f17e9fc7972073eb7830784c40ee9.zip"],
-    )
-
     _googletest_deps()
 
 def rules_ros2_workspace_deps():
