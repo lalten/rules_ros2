@@ -42,6 +42,13 @@ def rules_ros2_workspace_deps():
     )
     _googletest_deps()
 
+    maybe(
+        http_archive,
+        name = "nlohmann_json",
+        sha256 = "a22461d13119ac5c78f205d3df1db13403e58ce1bb1794edc9313677313f4a9d",
+        urls = ["https://github.com/nlohmann/json/releases/download/v3.11.3/include.zip"],
+    )
+
 def ros2_repositories():
     """Import external/third-party build http_archive dependencies."""
     maybe(
@@ -189,13 +196,6 @@ def ros2_repositories():
         sha256 = "083940a629c225640e4f4a4a9f43512907c98c5c468ae93c75429d8447a97c69",
         strip_prefix = "ros-foxglove-bridge-0.7.5",
         urls = ["https://github.com/foxglove/ros-foxglove-bridge/archive/refs/tags/0.7.5.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "nlohmann_json",
-        sha256 = "a22461d13119ac5c78f205d3df1db13403e58ce1bb1794edc9313677313f4a9d",
-        urls = ["https://github.com/nlohmann/json/releases/download/v3.11.3/include.zip"],
     )
 
     maybe(
