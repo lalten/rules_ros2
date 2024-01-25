@@ -75,6 +75,15 @@ def rules_ros2_workspace_deps():
         urls = ["https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz"],
     )
 
+    maybe(
+        http_archive,
+        name = "readerwriterqueue",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:readerwriterqueue.BUILD.bazel",
+        sha256 = "fc68f55bbd49a8b646462695e1777fb8f2c0b4f342d5e6574135211312ba56c1",
+        strip_prefix = "readerwriterqueue-1.0.6",
+        urls = ["https://github.com/cameron314/readerwriterqueue/archive/refs/tags/v1.0.6.tar.gz"],
+    )
+
 def ros2_repositories():
     """Import external/third-party build http_archive dependencies."""
     maybe(
@@ -102,15 +111,6 @@ def ros2_repositories():
         sha256 = "303a619c01a9e14a3c82eb9762b8a428ef5311a6d46353872ab9a904358be4a4",
         strip_prefix = "console_bridge-1.0.2",
         urls = ["https://github.com/ros/console_bridge/archive/1.0.2.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "readerwriterqueue",
-        build_file = "@com_github_mvukov_rules_ros2//repositories:readerwriterqueue.BUILD.bazel",
-        sha256 = "fc68f55bbd49a8b646462695e1777fb8f2c0b4f342d5e6574135211312ba56c1",
-        strip_prefix = "readerwriterqueue-1.0.6",
-        urls = ["https://github.com/cameron314/readerwriterqueue/archive/refs/tags/v1.0.6.tar.gz"],
     )
 
     maybe(
