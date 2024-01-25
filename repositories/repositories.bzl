@@ -104,6 +104,15 @@ def rules_ros2_workspace_deps():
 
     maybe(
         http_archive,
+        name = "yaml_cpp",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:yaml_cpp.BUILD.bazel",
+        sha256 = "fbe74bbdcee21d656715688706da3c8becfd946d92cd44705cc6098bb23b3a16",
+        strip_prefix = "yaml-cpp-0.8.0",
+        urls = ["https://github.com/jbeder/yaml-cpp/archive/refs/tags/0.8.0.tar.gz"],
+    )
+
+    maybe(
+        http_archive,
         name = "zstd",
         build_file = "@com_github_mvukov_rules_ros2//repositories:zstd.BUILD.bazel",
         sha256 = "9c4396cc829cfae319a6e2615202e82aad41372073482fce286fac78646d3ee4",
@@ -147,15 +156,6 @@ def ros2_repositories():
         sha256 = "2833f72344308ea58639f3b363a0cf17669580ae7ab435f43f3b104cff6ef548",
         strip_prefix = "mcap-releases-cpp-v0.8.0/cpp/mcap",
         urls = ["https://github.com/foxglove/mcap/archive/refs/tags/releases/cpp/v0.8.0.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "yaml_cpp",
-        build_file = "@com_github_mvukov_rules_ros2//repositories:yaml_cpp.BUILD.bazel",
-        sha256 = "43e6a9fcb146ad871515f0d0873947e5d497a1c9c60c58cb102a97b47208b7c3",
-        strip_prefix = "yaml-cpp-yaml-cpp-0.7.0",
-        urls = ["https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.7.0.tar.gz"],
     )
 
     maybe(
