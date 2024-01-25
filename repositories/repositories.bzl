@@ -8,17 +8,8 @@ load(
     "ros2_repositories_impl",
 )
 
-def rules_ros2_bzlmod_deps():
-    """Import Bazel build system http_archive dependencies for the Bzlmod version of rules_ros2.
-
-    These are needed for both the WORKSPACE and WORKSPACE.bzlmod versions of rules_ros2.
-    """
-    _googletest_deps()
-
 def rules_ros2_workspace_deps():
     """Import Bazel build system http_archive dependencies for the WORKSPACE version of rules_ros2."""
-    rules_ros2_bzlmod_deps()
-
     maybe(
         http_archive,
         name = "rules_python",
@@ -41,6 +32,15 @@ def rules_ros2_workspace_deps():
         strip_prefix = "rules_foreign_cc-0.10.1",
         url = "https://github.com/bazelbuild/rules_foreign_cc/archive/refs/tags/0.10.1.tar.gz",
     )
+
+    maybe(
+        http_archive,
+        name = "googletest",
+        sha256 = "8ad598c73ad796e0d8280b082cebd82a630d73e73cd3c70057938a6501bba5d7",
+        strip_prefix = "googletest-1.14.0",
+        url = "https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz",
+    )
+    _googletest_deps()
 
 def ros2_repositories():
     """Import external/third-party build http_archive dependencies."""
@@ -78,14 +78,6 @@ def ros2_repositories():
         sha256 = "d475978da0cdc2d43b73f30910786759d593a9d8ee05b1b6846d1eb16c6d2e0c",
         strip_prefix = "pybind11-2.11.1",
         urls = ["https://github.com/pybind/pybind11/archive/refs/tags/v2.11.1.tar.gz"],
-    )
-
-    maybe(
-        http_archive,
-        name = "com_google_googletest",
-        sha256 = "8ad598c73ad796e0d8280b082cebd82a630d73e73cd3c70057938a6501bba5d7",
-        strip_prefix = "googletest-1.14.0",
-        url = "https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz",
     )
 
     maybe(
@@ -306,7 +298,7 @@ def ros2_repositories():
     )
 
 def _googletest_deps():
-    """Lists implicit googletest deps.
+    """Lists implicit googletest WORKSPACE deps.
 
     Necessary such that e.g. `bazel fetch //...` can work.
     The versions below taken from https://github.com/google/googletest/blob/v1.13.0/WORKSPACE.

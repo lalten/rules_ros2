@@ -9,7 +9,6 @@ local_path_override(
 non_module_deps = use_extension("@com_github_mvukov_rules_ros2//:extensions.bzl", "non_module_deps")
 use_repo(
     non_module_deps,
-    "com_google_googletest",
     "cyclonedds",
     "foxglove_bridge",
     "iceoryx",

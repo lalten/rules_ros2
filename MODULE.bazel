@@ -1,6 +1,7 @@
 module(name = "com_github_mvukov_rules_ros2")
 
 bazel_dep(name = "bazel_skylib", version = "1.5.0")
+bazel_dep(name = "googletest", version = "1.14.0.bcr.1")
 bazel_dep(name = "platforms", version = "0.0.8")
 bazel_dep(name = "rules_cc", version = "0.0.9")
 bazel_dep(name = "rules_foreign_cc", version = "0.10.1")
@@ -46,7 +47,6 @@ use_repo(pip, "rules_ros2_resolver_deps")
 non_module_deps = use_extension("@com_github_mvukov_rules_ros2//:extensions.bzl", "non_module_deps")
 use_repo(
     non_module_deps,
-    "com_google_googletest",
     "cyclonedds",
     "foxglove_bridge",
     "iceoryx",
