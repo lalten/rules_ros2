@@ -15,7 +15,7 @@ def rules_ros2_workspace_deps():
         name = "asio",
         build_file = "@com_github_mvukov_rules_ros2//repositories:asio.BUILD.bazel",
         sha256 = "5705a0e403017eba276625107160498518838064a6dd7fd8b00b2e30c0ffbdee",
-        strip_prefix = "asio-asio-1-28-2/asio",
+        strip_prefix = "asio-asio-1-28-2/asio/include",
         urls = ["https://github.com/chriskohlhoff/asio/archive/refs/tags/asio-1-28-2.tar.gz"],
     )
 
