@@ -39,7 +39,10 @@ install_rules_ros2_pip_deps()
 
 load("@pybind11_bazel//:python_configure.bzl", "python_configure")
 
-python_configure(name = "local_config_python")
+python_configure(
+    name = "local_config_python"
+    python_interpreter_target = python_interpreter_target,
+)
 
 # Below are internal deps.
 
