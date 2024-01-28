@@ -43,3 +43,6 @@ build:clang --linkopt="-fuse-ld=lld"
 # as the user configuration should be able to overwrite flags from this file.
 # See https://docs.bazel.build/versions/master/best-practices.html#bazelrc
 try-import %workspace%/user.bazelrc
+
+# debug. remove me. https://github.com/bazelbuild/bazel-central-registry/pull/1394
+common --registry=https://raw.githubusercontent.com/lalten/bazel-central-registry/fix-zstd-include/
