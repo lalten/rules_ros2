@@ -26,8 +26,8 @@ cc_library(
     includes = ["foxglove_bridge_base/include"],
     deps = [
         "@nlohmann_json//:json",
-        "@websocketpp",
         "@openssl//:ssl",
+        "@websocketpp",
     ],
 )
 
