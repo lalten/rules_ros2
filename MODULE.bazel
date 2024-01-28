@@ -58,6 +58,7 @@ pip.parse(
 use_repo(pip, "rules_ros2_resolver_deps")
 
 python_configure = use_extension("@pybind11_bazel//:python_configure.bzl", "extension")
+python_configure.toolchain(python_version = "3")
 use_repo(python_configure, "local_config_python", "pybind11")
 
 non_module_deps = use_extension("@com_github_mvukov_rules_ros2//:extensions.bzl", "non_module_deps")
